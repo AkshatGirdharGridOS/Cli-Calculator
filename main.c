@@ -2,6 +2,7 @@
 #include "calc_functions.h"
 #include "calc_ui.h"
 #include "input_validation.h"
+#include "calc_history.h"
 
 int main()
 {
@@ -26,25 +27,38 @@ int main()
         switch (choice)
         {
         case 1:
-            addNumbers(num1, num2);
+            result = addNumbers(num1, num2);
+            saveToHistory(num1,num2,result,'+');
             break;
         case 2:
-            subtractNumbers(num1, num2);
+            result = subtractNumbers(num1, num2);
+            saveToHistory(num1,num2,result,'-');
             break;
         case 3:
-            multiplyNumbers(num1, num2);
+            result = multiplyNumbers(num1, num2);
+            saveToHistory(num1,num2,result,'x');
             break;
         case 4:
-            divideNumbers(num1, num2);
+            result = divideNumbers(num1, num2);
+            saveToHistory(num1,num2,result,'/');
             break;
         case 5:
-            squareRoot(num1);
+            result = squareRoot(num1);
+            saveToHistory(num1,0,result,'R');
             break;
         case 6:
-            exponentials(num1, num2);
+            result = exponentials(num1, num2);
+            saveToHistory(num1,num2,result,'^');
             break;
         case 7:
-            modulus((int)num1, (int)num2);
+            result = modulus((int)num1, (int)num2);
+            saveToHistory(num1,num2,result,'%');
+            break;
+        case 8 : 
+            displayHistory();
+            break;
+        case 9 :
+            clearHistory();
             break;
         default:
             printf("Invalid choice! Please select a valid operation!");

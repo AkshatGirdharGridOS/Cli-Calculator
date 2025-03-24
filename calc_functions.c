@@ -30,7 +30,7 @@ double multiplyNumbers(double num1, double num2)
 {   
     double result;
     result = num1 * num2;
-    printf("Product of %.2lf and %.2lf is %.2lf", num1, num2, result);
+    printf("Product of %.2lf and %.2lf is %.2lf\n", num1, num2, result);
 }
 
 double divideNumbers(double num1, double num2)
